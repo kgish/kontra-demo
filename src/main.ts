@@ -1,29 +1,34 @@
-import { init, Sprite, GameLoop } from 'kontra';
+import {
+    init,
+    Sprite,
+    GameLoop
+} from 'kontra';
 
 const { canvas } = init();
 
 const sprite = Sprite({
-  x: 100,        // starting x,y position of the sprite
-  y: 80,
-  color: 'red',  // fill color of the sprite rectangle
-  width: 20,     // width and height of the sprite rectangle
-  height: 40,
-  dx: 2          // move the sprite 2px to the right every frame
+    x: canvas.width / 2 - 10,
+    y: canvas.height / 2 - 10,
+    color: 'red',
+    width: 20,
+    height: 10,
+    dx: 2
 });
 
-const loop = GameLoop({  // create the main game loop
-  update: function() { // update the game state
+const update = () => {
     sprite.update();
 
-    // wrap the sprites position when it reaches
-    // the edge of the screen
     if (sprite.x > canvas.width) {
-      sprite.x = -sprite.width;
+        sprite.x = -sprite.width;
     }
-  },
-  render: function() { // render the game state
-    sprite.render();
-  }
-});
+};
 
-loop.start();    // start the game
+const render = () => {
+    sprite.render();
+};
+
+GameLoop({
+    update,
+    render
+}).start();
+
