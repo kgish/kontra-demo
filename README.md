@@ -8,7 +8,11 @@ This is a simple demo using the [Kontra](https://straker.github.io/kontra) game 
 
 ## Installation
 
-Requires node v14.
+Requires node v14 so ensure that you run the following command:
+
+```
+nvm use
+```
 
 ```bash
 git clone https://github.com/kgish/kontra-demo.git
@@ -49,3 +53,4 @@ yarn test
 * [Parcel](https://parceljs.org)
 * [TypeScript](https://www.typescriptlang.org)
 * [EsLint](https://eslint.org)
+* [Stylelint](https://stylelint.io)
